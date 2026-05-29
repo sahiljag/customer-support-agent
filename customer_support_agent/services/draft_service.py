@@ -86,3 +86,25 @@ class DraftService:
             )
 
         return draft_text, context
+    
+    @staticmethod
+    def _failed_context(error_text: str) -> dict[str, Any]:
+        return {
+            "version": 2,
+            "signals": {
+                "memory_hit_count": 0,
+                "knowledge_hit_count": 0,
+                "tool_call_count": 0,
+                "tool_error_count": 1,
+                "knowledge_sources": [],
+            },
+            "highlights": {
+                "memory": [],
+                "knowledge": [],
+                "tools": [],
+            },
+            "memory_hits": [],
+            "knowledge_hits": [],
+            "tool_calls": [],
+            "errors": [error_text],
+        }
