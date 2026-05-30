@@ -34,23 +34,13 @@ def get_customers_repository() -> CustomersRepository:
 def get_tickets_repository() -> TicketsRepository:
     return TicketsRepository()
 
-def get_settings_dep() -> Settings:
-    return get_settings()
-
-
-def get_customers_repository() -> CustomersRepository:
-    return CustomersRepository()
-
-
-def get_tickets_repository() -> TicketsRepository:
-    return TicketsRepository()
 
 
 def get_drafts_repository() -> DraftsRepository:
     return DraftsRepository()
 
 
-def get_draft_service() -> DraftService:
+def get_drafts_service() -> DraftService:
     return DraftService()
 
 

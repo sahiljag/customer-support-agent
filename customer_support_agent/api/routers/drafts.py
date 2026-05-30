@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 
 from customer_support_agent.api.dependencies import (
     get_copilot,
-    get_draft_service,
+    get_drafts_service,
     get_drafts_repository,
     get_tickets_repository,
 )
@@ -18,8 +18,8 @@ router = APIRouter()
 @router.get("/api/drafts/{ticket_id}", response_model=DraftResponse)
 def get_draft_route(
     ticket_id: int,
-    drafts_repo: DraftsRepository = Depends(get_draft_repository),
-    draft_service: DraftService = Depends(get_draft_service),
+    drafts_repo: DraftsRepository = Depends(get_drafts_repository),
+    draft_service: DraftService = Depends(get_drafts_service),
 ) -> dict:
     draft = drafts_repo.get_latest_for_ticket(ticket_id)
     if not draft:
@@ -33,7 +33,7 @@ def update_draft_route(
     payload: DraftUpdateRequest,
     drafts_repo: DraftsRepository = Depends(get_drafts_repository),
     tickets_repo: TicketsRepository = Depends(get_tickets_repository),
-    draft_service: DraftService = Depends(get_draft_service),
+    draft_service: DraftService = Depends(get_drafts_service),
 ) -> dict:
     existing = drafts_repo.get_by_id(draft_id)
     if not existing:
@@ -60,3 +60,4 @@ def update_draft_route(
             except Exception:
                 # Draft acceptance should still succeed even if memory save fails.
                 pass
+    return draft_service.serialize_draft(updated)

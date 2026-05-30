@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import sqlite3
 from typing import Any
-from customer_support_agent.core import Settings, get_settings,ensure_directories
+from customer_support_agent.core.settings import  get_settings,ensure_directories
 
 
 def connect() -> sqlite3.Connection:
@@ -48,7 +48,7 @@ def init_db() -> None:
             content TEXT NOT NULL,
             context_used TEXT,
             status TEXT  DEFAULT 'pending',
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
         );
 

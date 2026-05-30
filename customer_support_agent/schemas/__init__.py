@@ -11,7 +11,7 @@ from customer_support_agent.schemas.api import (
     KnowledgeIngestRequest,
     KnowledgeIngestResponse,
     CustomerMemoriesResponse,
-    CustomerMemorySearchresponse
+    CustomerMemorySearchResponse
 
 )
 
@@ -27,4 +27,4 @@ __all__ = [TicketCreateRequest,
     KnowledgeIngestRequest,
     KnowledgeIngestResponse,
     CustomerMemoriesResponse,
-    CustomerMemorySearchresponse]
+    CustomerMemorySearchResponse]

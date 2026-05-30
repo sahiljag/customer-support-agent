@@ -2,11 +2,11 @@ from __future__ import annotations
 from typing import Any
 
 from customer_support_agent.repositories.sqlite.base import  init_db
-from customer_support_agent.repositories.sqlite.customer import customer_repository
+from customer_support_agent.repositories.sqlite.customer import CustomersRepository
 from customer_support_agent.repositories.sqlite.tickets import TicketsRepository        
 from customer_support_agent.repositories.sqlite.drafts import DraftsRepository
 
-_customers = customer_repository()
+_customers = CustomersRepository()
 _tickets = TicketsRepository()
 _drafts = DraftsRepository()    
 

@@ -8,8 +8,8 @@ from customer_support_agent.api.dependencies import (
     get_copilot_or_503,
     get_customers_repository,
 )
-from customer_support_agent.repositories.sqlite.customers import CustomersRepository
-from customer_support_agent.schemas.api import CustomerMemoriesResponse, CustomerMemorySearch
+from customer_support_agent.repositories.sqlite.customer import CustomersRepository
+from customer_support_agent.schemas.api import CustomerMemoriesResponse, CustomerMemorySearchResponse
 from customer_support_agent.services.copilot_service import SupportCopilot
 
 

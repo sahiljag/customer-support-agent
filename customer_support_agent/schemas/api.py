@@ -63,7 +63,7 @@ class StructuredDraftContext(BaseModel):
 
 class DraftResponse(BaseModel):
     id : int
-    ticket_id = int
+    ticket_id : int
     content: str
     context_used:StructuredDraftContext | dict[str,Any] | None = None
     status: str
@@ -82,7 +82,7 @@ class KnowledgeIngestRequest(BaseModel):
     clear_existing: bool = False
 
 class KnowledgeIngestResponse(BaseModel):
-    file_indexed : int
+    files_indexed : int
     chunks_indexed : int
     collection_count : int
 
@@ -91,8 +91,8 @@ class CustomerMemoriesResponse(BaseModel):
     customer_email : EmailStr
     memories :list[dict[str,Any]]    
 
-class CustomerMemorySearchresponse(BaseModel):
-    customer_id = int
+class CustomerMemorySearchResponse(BaseModel):
+    customer_id : int
     customer_email : EmailStr
     query : str
     results: list[dict[str,Any]]
